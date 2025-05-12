@@ -1,0 +1,29 @@
+#grid {
+  display: grid;
+  grid-template-columns: repeat(3, 60px);
+  gap: 5px;
+  margin: 10px;
+}
+.cell {
+  width: 60px;
+  height: 60px;
+  background-color: #222;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cell.black {background-color: black;}
+.cell.blue {background-color: blue;}
+.cell.green {background-color: green;}
+.cell.grey {background-color: grey;}
+.cell.orange {background-color: orange;}
+.cell.pink {background-color: pink;}
+.cell.purple {background-color: purple;}
+.cell.red {background-color: red;}
+.cell.white {background-color: white;}
+.cell.yellow {background-color: yellow;}
+
+
+
+
+

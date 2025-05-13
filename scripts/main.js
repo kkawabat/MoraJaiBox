@@ -250,7 +250,7 @@ function load_pattern(box){
 
 document.addEventListener("DOMContentLoaded", () => {
     init_pattern_div();
-    apply_pattern();
+    load_pattern(mora_jai_data[0]);
 
     document.getElementById('apply-pattern-btn').addEventListener('click', () => {
         console.log("Start clicked");

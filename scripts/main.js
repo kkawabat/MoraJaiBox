@@ -269,7 +269,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById('blur-btn').addEventListener('click', () => {
         document.getElementById('known-patterns-div').classList.toggle("censored");
-
     });
+
+    document.getElementById('blur-game-rule-btn').addEventListener('click', () => {
+        document.getElementById('rule-ul').classList.toggle("censored");
+    });
+
+
 
 });

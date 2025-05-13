@@ -37,19 +37,20 @@
         </div>
         <div id="solution-div"></div>
 
-        <div class="rules"><h2>Pattern Rules</h2>
-          <p>Enter 13 colors, colors 1-3 determines box colors the top row.</p>
+        <div class="rules"><h2>Custom patterns</h2>
+          You can create your own pattern by listing 13 colors in the text box above and clicking "apply pattern". The rules for the patterns are shown below:
+          <p>colors 1-3 determines box colors the top row.</p>
           <p>Colors 4-6 determines the box colors of the middle row.</p>
           <p>Colors 7-9 determines the box colors of the last row.</p>
-          <p>Colors 10-13 determines the desired realm color starting from upper-left corner and moving clockwise.</p>
+          <p>Colors 10-13 determines the desired corner realm colors starting from upper-left corner and moving clockwise.</p>
         </div>
       </div>
     </div>
 
-    <div class="rules">
-        <h2>Game Rules</h2>
-        Match the corner colors.
-        <ul>
+    <div class="rules" >
+        <h2>Game Rules <button id="blur-game-rule-btn">Toggle Spoilers</button></h2>
+        Match the color of the corner tiles by manipulating the board. Below are the rules to the different color tiles. Note that they are blurred as some consider this game spoilers.
+        <ul id="rule-ul" class="censored">
           <li>grey — Tile acts as an empty space and has no function.</li>
           <li>black — Moves all of the tiles in the row one to the right.</li>
           <li>red — Turns all white tiles black and all black tiles red.</li>
@@ -62,9 +63,9 @@
           <li>blue — Tile will copy the ability of the tile in the middle of the 3x3 grid.</li>
         </ul>
         <br>
-      <h2>Known Mora Jai Puzzles</h2>
+      <h2>Known Mora Jai Puzzles <button id="blur-btn">Toggle Spoilers</button></h2>
         <p>Click below to select a specific box.</p>
-        <p>This section has been blurred as it contains possible <b>spoilers!</b> <button id="blur-btn">Toggle blur</button></p>
+        <p>This section has been blurred as it contains possible <b>spoilers!</b></p>
         <div id="known-patterns-div" class="censored"></div>
     </div>
 

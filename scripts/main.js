@@ -4,6 +4,15 @@ const colors = [
 "black", "blue", "green", "grey", "orange", "pink", "purple", "red", "white", "yellow"
 ]
 
+const pattern_list = [
+    "grey green grey orange red orange white green black red red red red",
+    "pink grey grey grey yellow yellow grey yellow yellow yellow yellow yellow yellow",
+    "green black green black black black green yellow green black black black black",
+]
+
+var cur_pattern;
+
+var board;
 
 function fromFlatArray(flatArray, size) {
   const board = [];
@@ -24,6 +33,14 @@ function renderGrid(board) {
       grid.appendChild(div);
     });
   });
+}
+
+function renderCorners(corners) {
+  const grid = document.getElementById('grid-container');
+  document.getElementById("corner-tl").style.backgroundColor = corners[0];
+  document.getElementById("corner-tr").style.backgroundColor = corners[1];
+  document.getElementById("corner-br").style.backgroundColor = corners[2];
+  document.getElementById("corner-bl").style.backgroundColor = corners[3];
 }
 
 function getColor(r, c) {
@@ -156,8 +173,57 @@ function get_neighbors(r, c){
     return neighbors
 }
 
+function random_pattern(){
+    var new_pattern = pattern_list[Math.floor(Math.random() * pattern_list.length)];
+    document.getElementById('pattern-input').value = new_pattern;
+    cur_pattern = new_pattern;
+    reset_pattern()
+}
+
+function apply_pattern(){
+    const pattern_str = document.getElementById('pattern-input').value.toLowerCase();
+    const pattern_list = pattern_str.split(" ")
+    if (pattern_list.length !== 13){
+        alert("Invalid Pattern: you need 13 colors, see pattern rules below.")
+        return;
+    }
+
+    for (const pattern of pattern_list){
+        if (!colors.includes(pattern)){
+            alert("Invalid Pattern: " + pattern + " is not a recognized color please use the color shown under game rules")
+            return;
+        }
+    }
+
+    cur_pattern = pattern_str;
+    reset_pattern()
+}
+
+function reset_pattern(){
+    const pattern_list = cur_pattern.split(" ")
+    board = fromFlatArray(pattern_list.slice(0, 9), GRIDSIZE)
+    renderCorners(pattern_list.slice(9, 13))
+    renderGrid(board);
+}
 
 
-var board = fromFlatArray([ "red", "orange", "green", "blue", "pink", "black", "grey", "white", "pink"], GRIDSIZE)
 
-renderGrid(board);
+
+document.addEventListener("DOMContentLoaded", () => {
+    apply_pattern();
+
+    document.getElementById('apply-pattern-btn').addEventListener('click', () => {
+        console.log("Start clicked");
+        apply_pattern()
+    });
+
+    document.getElementById('reset-btn').addEventListener('click', () => {
+        console.log("Reset clicked");
+        reset_pattern()
+    });
+
+    document.getElementById('random-btn').addEventListener('click', () => {
+        console.log("Reset clicked");
+        random_pattern()
+    });
+});

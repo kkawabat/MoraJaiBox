@@ -1,29 +1,172 @@
-#grid {
+/* Reset / Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: #121212;
+  color: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Layout */
+.container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #00ffe1;
+  text-shadow: 0 0 10px #00ffe1;
+}
+
+.grid {
   display: grid;
   grid-template-columns: repeat(3, 60px);
-  gap: 5px;
-  margin: 10px;
+  grid-gap: 6px;
+  justify-content: center;
 }
+
 .cell {
   width: 60px;
   height: 60px;
-  background-color: #222;
+  background-color: #333;
+  border: 2px solid #444;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.black {background-color: black;}
+.blue {background-color: blue;}
+.green {background-color: green;}
+.grey {background-color: grey;}
+.orange {background-color: orange;}
+.pink {background-color: pink;}
+.purple {background-color: purple;}
+.red {background-color: red;}
+.white {background-color: white;}
+.yellow {background-color: yellow;}
+
+
+.cell:hover {
+  transform: scale(1.05);
+  border-color: #888;
+}
+
+/* Button styling */
+button {
+  padding: 12px 24px;
+  background-color: #00bcd4;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 188, 212, 0.3);
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #0097a7;
+  transform: translateY(-2px);
+}
+
+.controls {
+  margin-bottom: 20px;
+}
+
+.controls button {
+  margin: 0 5px;
+}
+
+.input-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input-box input {
+  padding: 8px;
+  font-size: 16px;
+  width: 300px;
+  border: none;
+  border-radius: 6px;
+}
+
+.input-box button {
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
-.cell.black {background-color: black;}
-.cell.blue {background-color: blue;}
-.cell.green {background-color: green;}
-.cell.grey {background-color: grey;}
-.cell.orange {background-color: orange;}
-.cell.pink {background-color: pink;}
-.cell.purple {background-color: purple;}
-.cell.red {background-color: red;}
-.cell.white {background-color: white;}
-.cell.yellow {background-color: yellow;}
+.input-box button:hover {
+  background-color: #388e3c;
+}
 
+.layout {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px;
+}
 
+.rules {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: left;
+  color: #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
 
+.rules h2 {
+  color: #00ffe1;
+  margin-bottom: 10px;
+}
 
+.rules ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  line-height: 1.6;
+}
 
+#grid-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  height: 220px;
+  margin: 20px;
+}
+
+#corner-tl,
+#corner-tr,
+#corner-bl,
+#corner-br {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  z-index: 10;
+  border-radius: 4px;
+}
+
+#corner-tl { top: -5px; left: -5px;}
+#corner-tr { top: -5px; right: -5px;}
+#corner-bl { bottom: -5px; left: -5px;}
+#corner-br { bottom: -5px; right: -5px;}

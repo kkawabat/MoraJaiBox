@@ -2,12 +2,58 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Mora Jai Box simulator</title>
+  <title>Mora Jai Box Simulator</title>
   <link rel="stylesheet" href="style/main.css">
 </head>
 <body>
-  <div id="grid"></div>
-  <button id="start-btn">Start Game</button>
+  <div class="layout">
+    <div class="container">
+      <h1>Mora Jai Box Simulator</h1>
+      <div id="grid-container">
+        <div id="grid" class="grid"></div>
+        <div id="corner-tl"></div>
+        <div id="corner-tr"></div>
+        <div id="corner-bl"></div>
+        <div id="corner-br"></div>
+      </div>
+      <div class="controls">
+        <button id="reset-btn">Reset</button>
+        <button id="random-btn">Random Puzzle</button>
+      </div>
+
+      <div class="pattern-div">
+        <div class="input-box">
+          <input type="text" id="pattern-input" value="grey green grey orange red orange white green black red red red red" />
+          <button id="apply-pattern-btn">Apply Pattern</button>
+        </div>
+
+        <div class="rules"><h2>Pattern Rules</h2>
+          <p>Enter 13 colors, colors 1-3 determines box colors the top row.</p>
+          <p>Colors 4-6 determines the box colors of the middle row.</p>
+          <p>Colors 7-9 determines the box colors of the last row.</p>
+          <p>Colors 10-13 determines the desired realm color starting from upper-left corner and moving clockwise.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="rules">
+        <h2>Game Rules</h2>
+        Match the corner colors.
+        <ul>
+          <li>grey — Tile acts as an empty space and has no function.</li>
+          <li>black — Moves all of the tiles in the row one to the right.</li>
+          <li>red — Turns all white tiles black and all black tiles red.</li>
+          <li>green — Tile swaps positions with a tile in the opposite position.</li>
+          <li>yellow — Tile moves up one position.</li>
+          <li>pink — Rotates every adjacent tile one clockwise position.</li>
+          <li>purple — Tile moves down one position.</li>
+          <li>orange — Tile changes colors to match the majority of its adjacent tiles. If there adjacent tiles are evenly split, the tile will not change colors.</li>
+          <li>white — Tile expands outwards if there are any adjacent gray tiles. If there are no adjacent gray tiles, the white tile will disappear.</li>
+          <li>blue — Tile will copy the ability of the tile in the middle of the 3x3 grid.</li>
+        </ul>
+    </div>
+  </div>
   <script type="module" src="scripts/main.js"></script>
+
 </body>
 </html>

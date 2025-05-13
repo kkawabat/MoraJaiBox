@@ -43,10 +43,10 @@ function renderGrid(board) {
 
 function renderCorners(corners) {
   const grid = document.getElementById('grid-container');
-  document.getElementById("corner-tl").style.backgroundColor = corners[0];
-  document.getElementById("corner-tr").style.backgroundColor = corners[1];
-  document.getElementById("corner-br").style.backgroundColor = corners[2];
-  document.getElementById("corner-bl").style.backgroundColor = corners[3];
+  document.getElementById("corner-tl").style.backgroundColor = corners[0].replace("violet", "purple");
+  document.getElementById("corner-tr").style.backgroundColor = corners[1].replace("violet", "purple");
+  document.getElementById("corner-br").style.backgroundColor = corners[2].replace("violet", "purple");
+  document.getElementById("corner-bl").style.backgroundColor = corners[3].replace("violet", "purple");
 }
 
 function getColor(r, c) {
@@ -66,6 +66,7 @@ function setColorList(coord_list, color_list){
 }
 
 function handleClick(r, c) {
+    console.log(7-r*3+c)
     var cur_color = getColor(r, c);
     colorLogic(r, c, cur_color, cur_color);
     renderGrid(board)
@@ -228,15 +229,17 @@ function init_pattern_div(){
 function load_pattern(box){
     document.getElementById('pattern-input').value = box.pattern
 
+    const solution_div = document.getElementById('solution-div');
+    solution_div.innerHTML = '';
+
     if (box.solution.length !== 0){
-        const solution_div = document.getElementById('solution-div');
-        solution_div.innerHTML = '';
         const p = document.createElement('p');
         p.textContent = 'solution: ';
 
         const span = document.createElement('span');
-        span.className = 'censored';
+        span.className = 'censored solution';
         span.textContent = box.solution;
+        span.onclick = () => span.classList.remove("censored");
 
         p.appendChild(span);
         solution_div.appendChild(p)

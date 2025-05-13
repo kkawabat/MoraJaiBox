@@ -25,8 +25,8 @@ body {
 
 h1 {
   margin-bottom: 20px;
-  color: #00ffe1;
-  text-shadow: 0 0 10px #00ffe1;
+  color: #3074bb;
+  text-shadow: 0 0 10px #3074bb;
 }
 
 .grid {
@@ -145,7 +145,7 @@ button:hover {
 }
 
 .rules h2 {
-  color: #00ffe1;
+  color: #3074bb;
   margin-bottom: 10px;
 }
 
@@ -212,19 +212,17 @@ button:hover {
   transform: scale(1.1);
 }
 
-.censored {
+.solution {
     display: inline-block;
     color: black;
     background-color: #f8f8f8;
     border-radius: 4px;
     padding: 4px 8px;
-    filter: blur(8px);
-    transition: filter 0.3s ease;
     cursor: pointer;
 }
-
-.censored:hover {
-    filter: none;
+.censored {
+    filter: blur(8px);
+    transition: filter 0.3s ease;
 }
 
 #known-patterns-div {

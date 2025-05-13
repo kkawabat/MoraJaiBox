@@ -240,3 +240,7 @@ button:hover {
   font-family: sans-serif;
   border-radius: 6px;
 }
+
+#blur-btn {
+    padding: 5px;
+}

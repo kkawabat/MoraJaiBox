@@ -266,4 +266,10 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Reset clicked");
         random_pattern()
     });
+
+    document.getElementById('blur-btn').addEventListener('click', () => {
+        document.getElementById('known-patterns-div').classList.toggle("censored");
+
+    });
+
 });

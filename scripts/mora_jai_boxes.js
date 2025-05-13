@@ -143,13 +143,13 @@ export const mora_jai_data = [
     pattern: "violet white violet white white white blue pink blue blue blue blue blue",
     solution: "486272292922262626228222"
   },{
-    location: "Blueprints D1",
+    location: "Blueprints D1*",
     pattern: "red green orange black black black violet blue violet violet violet violet violet",
     solution: ""
   },{
     location: "Blueprints D2",
     pattern: "orange green orange yellow orange orange blue yellow orange orange orange orange orange",
-    solution: ""
+    solution: "218541"
   },{
     location: "Blueprints D3",
     pattern: "green yellow green blue orange blue blue orange blue blue blue blue blue",

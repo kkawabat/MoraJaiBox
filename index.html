@@ -6,6 +6,15 @@
   <link rel="stylesheet" href="style/main.css">
 </head>
 <body>
+  <div id="corner-links">
+    <a href="https://buymeacoffee.com/kkawabata" target="_blank" aria-label="Buy Me a Coffee" class="icon-link">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/buymeacoffee.svg" alt="Buy Me a Coffee" />
+    </a>
+    <a href="https://github.com/kkawabat/MoraJaiBox" target="_blank" aria-label="GitHub" class="icon-link">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" />
+    </a>
+  </div>
+
   <div class="layout">
     <div class="container">
       <h1>Mora Jai Box Simulator</h1>
@@ -26,6 +35,7 @@
           <input type="text" id="pattern-input" value="grey green grey orange red orange white green black red red red red" />
           <button id="apply-pattern-btn">Apply Pattern</button>
         </div>
+        <div id="solution-div"></div>
 
         <div class="rules"><h2>Pattern Rules</h2>
           <p>Enter 13 colors, colors 1-3 determines box colors the top row.</p>
@@ -46,12 +56,16 @@
           <li>green — Tile swaps positions with a tile in the opposite position.</li>
           <li>yellow — Tile moves up one position.</li>
           <li>pink — Rotates every adjacent tile one clockwise position.</li>
-          <li>purple — Tile moves down one position.</li>
+          <li>violet — Tile moves down one position.</li>
           <li>orange — Tile changes colors to match the majority of its adjacent tiles. If there adjacent tiles are evenly split, the tile will not change colors.</li>
           <li>white — Tile expands outwards if there are any adjacent gray tiles. If there are no adjacent gray tiles, the white tile will disappear.</li>
           <li>blue — Tile will copy the ability of the tile in the middle of the 3x3 grid.</li>
         </ul>
+        <h2>Known Mora Jai Puzzles</h2>
+        <p>Click below to select a box</p>
+        <div id="known-patterns-div"></div>
     </div>
+
   </div>
   <script type="module" src="scripts/main.js"></script>
 

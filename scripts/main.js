@@ -1,18 +1,13 @@
-
+import {mora_jai_data} from "./mora_jai_boxes.js"
 const GRIDSIZE = 3;
 const colors = [
-"black", "blue", "green", "grey", "orange", "pink", "purple", "red", "white", "yellow"
-]
-
-const pattern_list = [
-    "grey green grey orange red orange white green black red red red red",
-    "pink grey grey grey yellow yellow grey yellow yellow yellow yellow yellow yellow",
-    "green black green black black black green yellow green black black black black",
+"black", "blue", "green", "grey", "orange", "pink", "violet", "red", "white", "yellow"
 ]
 
 var cur_pattern;
 
 var board;
+var corners;
 
 function fromFlatArray(flatArray, size) {
   const board = [];
@@ -27,12 +22,23 @@ function renderGrid(board) {
   grid.innerHTML = '';
   board.forEach((row, r) => {
     row.forEach((cell_color, c) => {
-      const div = document.createElement('div');
-      div.className = 'cell' + " " + cell_color;
-      div.onclick = () => handleClick(r, c);
-      grid.appendChild(div);
+      const cell = document.createElement('div');
+
+      const number = document.createElement('span');
+      number.className = 'number';
+      number.textContent =  7 - r * 3 + c;
+
+      cell.className = 'cell' + " " + cell_color;
+      cell.onclick = () => handleClick(r, c);
+      cell.appendChild(number)
+      grid.appendChild(cell);
     });
   });
+
+  if ((getColor(0,0) == corners[0]) & (getColor(0,2) == corners[1]) & (getColor(2,2) == corners[2]) & (getColor(2,0) == corners[3])){
+    alert('Congratulations! You did it!');
+  }
+
 }
 
 function renderCorners(corners) {
@@ -107,9 +113,9 @@ function colorLogic(r, c, cur_color, logic_color){
         neighbors.push(neighbors.shift());
         setColorList(neighbors, neighbor_colors)
         break;
-    case "purple":
+    case "violet":
         if (r == 2){break;}
-        color = getColor(r+1, c)
+        var color = getColor(r+1, c)
         setColor(r+1, c, cur_color)
         setColor(r, c, color)
         break;
@@ -134,7 +140,7 @@ function colorLogic(r, c, cur_color, logic_color){
         break;
     case "yellow":
         if (r == 0){break;}
-        color = getColor(r-1, c)
+        var color = getColor(r-1, c)
         setColor(r-1, c, cur_color)
         setColor(r, c, color)
         break;
@@ -174,7 +180,7 @@ function get_neighbors(r, c){
 }
 
 function random_pattern(){
-    var new_pattern = pattern_list[Math.floor(Math.random() * pattern_list.length)];
+    var new_pattern = mora_jai_data[Math.floor(Math.random() * mora_jai_data.length)].pattern;
     document.getElementById('pattern-input').value = new_pattern;
     cur_pattern = new_pattern;
     reset_pattern()
@@ -202,14 +208,45 @@ function apply_pattern(){
 function reset_pattern(){
     const pattern_list = cur_pattern.split(" ")
     board = fromFlatArray(pattern_list.slice(0, 9), GRIDSIZE)
-    renderCorners(pattern_list.slice(9, 13))
+    corners = pattern_list.slice(9, 13);
+    renderCorners(corners)
     renderGrid(board);
 }
 
 
+function init_pattern_div(){
+    const kp_div = document.getElementById('known-patterns-div')
+    kp_div.innerHTML = '';
+    mora_jai_data.forEach(box => {
+      const div = document.createElement('div');
+      div.className = 'grid-item';
+      div.textContent = box.location;
+      div.onclick = () => load_pattern(box);
+      kp_div.appendChild(div);
+    });
+}
+function load_pattern(box){
+    document.getElementById('pattern-input').value = box.pattern
 
+    if (box.solution.length !== 0){
+        const solution_div = document.getElementById('solution-div');
+        solution_div.innerHTML = '';
+        const p = document.createElement('p');
+        p.textContent = 'solution: ';
+
+        const span = document.createElement('span');
+        span.className = 'censored';
+        span.textContent = box.solution;
+
+        p.appendChild(span);
+        solution_div.appendChild(p)
+    }
+
+    apply_pattern()
+}
 
 document.addEventListener("DOMContentLoaded", () => {
+    init_pattern_div();
     apply_pattern();
 
     document.getElementById('apply-pattern-btn').addEventListener('click', () => {

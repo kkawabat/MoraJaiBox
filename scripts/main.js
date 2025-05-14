@@ -8,6 +8,7 @@ var cur_pattern;
 
 var board;
 var corners;
+var cur_solution = [];
 
 function fromFlatArray(flatArray, size) {
   const board = [];
@@ -66,7 +67,8 @@ function setColorList(coord_list, color_list){
 }
 
 function handleClick(r, c) {
-    console.log(7-r*3+c)
+    cur_solution.push(7-r*3+c)
+    console.log(cur_solution.join(""))
     var cur_color = getColor(r, c);
     colorLogic(r, c, cur_color, cur_color);
     renderGrid(board)
@@ -208,6 +210,7 @@ function apply_pattern(){
 }
 
 function reset_pattern(){
+    cur_solution = [];
     const pattern_list = cur_pattern.split(" ")
     board = fromFlatArray(pattern_list.slice(0, 9), GRIDSIZE)
     corners = pattern_list.slice(9, 13);

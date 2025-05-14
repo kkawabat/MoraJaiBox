@@ -78,6 +78,46 @@ export const mora_jai_data = [
     solution: "4"
   },
   {
+    location: "Unknown Box #1",
+    pattern: "black black black green black grey grey grey pink black black black black",
+    solution: "33432222"
+  },
+  {
+    location: "Unknown Box #2",
+    pattern: "orange grey violet orange grey violet black black black black black black black",
+    solution: "32264699888"
+  },
+  {
+    location: "Unknown Box #3",
+    pattern: " black black black grey grey grey pink violet orange black black black black",
+    solution: "144453396"
+  },
+  {
+    location: "Unknown Box #4",
+    pattern: "black black black orange grey orange yellow grey yellow black black black black",
+    solution: "3661155612288"
+  },
+  {
+    location: "Unknown Box #5",
+    pattern: "orange grey pink black grey black green grey orange black black black black",
+    solution: "99711199399882"
+  },
+  {
+    location: "Unknown Box #6",
+    pattern: "black violet black grey grey grey orange green orange black black black black",
+    solution: "2998881878838"
+  },
+  {
+    location: "Unknown Box #7",
+    pattern: "orange orange orange black green black violet green violet black black black black",
+    solution: "2286878722877723"
+  },
+  {
+    location: "Unknown Box #8",
+    pattern: "black green yellow black black black grey grey grey black black black black",
+    solution: "8782992522336811119"
+  },
+  {
     location: "Blueprints A1",
     pattern: "black grey orange orange green orange orange green yellow green green green green",
     solution: "27688439978897"

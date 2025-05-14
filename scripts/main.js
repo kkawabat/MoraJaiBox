@@ -130,11 +130,12 @@ function colorLogic(r, c, cur_color, logic_color){
         break;
     case "white":
         var adjacents = get_adjacents(r, c)
-        var had_grey = false;
         for (const adj of adjacents){
             if ("grey" == getColor(adj[0], adj[1])){
                 setColor(adj[0], adj[1], cur_color)
-                had_grey = true;
+            }
+            else if (cur_color == getColor(adj[0], adj[1])){
+                setColor(adj[0], adj[1], "grey")
             }
         }
         setColor(r, c, "grey")

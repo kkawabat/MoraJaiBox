@@ -16,7 +16,7 @@ export const mora_jai_data = [
   {
     location: "Lost and Found",
     pattern: "pink pink pink pink grey pink grey grey grey pink pink pink pink",
-    solution: "9632122227714488"
+    solution: "7662"
   },
   {
     location: "Closed Exhibit",
@@ -314,8 +314,8 @@ export const mora_jai_data = [
   },
   {
     location: "Blueprints H5",
-    pattern: "black grey grey white green green blue yellow orange blue blue blue blue",
-    solution: ""
+    pattern: "black grey grey white green white blue yellow orange blue blue blue blue",
+    solution: "227565146412292"
   },
   {
     location: "Blueprints I1",
@@ -345,6 +345,6 @@ export const mora_jai_data = [
   {
     location: "Blueprints 46th room",
     pattern: "orange pink orange grey green grey blue grey blue blue blue blue blue",
-    solution: "18868889868888"
+    solution: "8481688898148"
   },
 ]

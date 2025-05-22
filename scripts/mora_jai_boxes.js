@@ -74,8 +74,8 @@ export const mora_jai_data = [
   },
   {
     location: "Inner sanctum Nuance",
-    pattern: "pink pink grey grey grey grey orange orange orange pink pink pink pink",
-    solution: "76239979895787131266747"
+    pattern: "green grey green grey orange orange grey black violet green green green green",
+    solution: "763299676647"
   },
   {
     location: "The Unknown Box #1",
